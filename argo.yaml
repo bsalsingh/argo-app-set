@@ -8,12 +8,12 @@ spec:
   generators:
     - list:
         elements:
-          - cluster: kind-scribble
+          - cluster: in-cluster
   template:
     metadata:
       name: '{{.cluster}}-myapp'
     spec:
-      project: myproj
+      project: default
       source:
         repoURL: https://github.com/bsalsingh/argo-app-set.git
         targetRevision: HEAD
