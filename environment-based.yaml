@@ -11,7 +11,7 @@ spec:
         elements:
           - cluster: in-cluster
             branch: main
-            path: blaze/main
+            path: blaze/dev
   template:
     metadata:
       name: '{{.cluster}}-{{.branch}}-myapp'
