@@ -26,3 +26,9 @@ spec:
       destination:
         server: '{{.url}}'
         namespace: myapp
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+        automated:
+          selfHeal: true
+          prune: true
