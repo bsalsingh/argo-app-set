@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: myapp
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+      elements:
+      - cluster: kind-01cloud
+        url: https://127.0.0.1:53290
+      - cluster: kind-resource-controller-test
+        url: https://127.0.0.1:64442
+      - cluster: kind-scribble
+        url: https://127.0.0.1:61352
+  template:
+    metadata:
+      name: '{{.cluster}}-myapp'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com:bsalsingh/argo-app-set.git
+        targetRevision: HEAD
+        path: blaze/{{.cluster}}
+      destination:
+        server: '{{.url}}'
+        namespace: myapp
