@@ -13,7 +13,7 @@ spec:
     metadata:
       name: '{{.cluster}}-myapp'
     spec:
-      project: default
+      project: myproj
       source:
         repoURL: https://github.com/bsalsingh/argo-app-set.git
         targetRevision: HEAD
