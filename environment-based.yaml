@@ -11,6 +11,8 @@ spec:
         elements:
           - cluster: in-cluster
             path: dev
+          - cluster: in-cluster
+            path: stage
   template:
     metadata:
       name: '{{.cluster}}-{{.path}}-myapp'
