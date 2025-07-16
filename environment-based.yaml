@@ -10,11 +10,10 @@ spec:
     - list:
         elements:
           - cluster: in-cluster
-            branch: main
-            path: blaze/dev
+            path: dev
   template:
     metadata:
-      name: '{{.cluster}}-{{.branch}}-myapp'
+      name: '{{.cluster}}-{{.path}}-myapp'
     spec:
       project: default
       source:
@@ -23,7 +22,7 @@ spec:
         path: '{{.path}}'
       destination:
         name: '{{.cluster}}'
-        namespace: '{{.branch}}'
+        namespace: '{{.path}}'
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
