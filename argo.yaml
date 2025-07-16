@@ -12,9 +12,6 @@ spec:
           - cluster: in-cluster
             branch: main
             path: blaze/main
-          - cluster: in-cluster
-            branch: staging
-            path: blaze/staging
   template:
     metadata:
       name: '{{.cluster}}-{{.branch}}-myapp'
