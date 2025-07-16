@@ -6,14 +6,9 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - list:
-      elements:
-      - cluster: kind-01cloud
-        url: https://127.0.0.1:53290
-      - cluster: kind-resource-controller-test
-        url: https://127.0.0.1:64442
-      - cluster: kind-scribble
-        url: https://127.0.0.1:61352
+    - list:
+        elements:
+          - cluster: kind-scribble
   template:
     metadata:
       name: '{{.cluster}}-myapp'
@@ -24,11 +19,13 @@ spec:
         targetRevision: HEAD
         path: blaze/{{.cluster}}
       destination:
-        server: '{{.url}}'
+        name: '{{.cluster}}'
         namespace: myapp
       syncPolicy:
         syncOptions:
-        - CreateNamespace=true
+          - CreateNamespace=true
         automated:
           selfHeal: true
           prune: true
+
+
