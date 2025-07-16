@@ -22,7 +22,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/bsalsingh/argo-app-set.git
-        targetRevision: HEAD
+        targetRevision: '{{.branch}}'
         path: '{{.path}}'
       destination:
         name: '{{.cluster}}'
