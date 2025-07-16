@@ -20,7 +20,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com:bsalsingh/argo-app-set.git
+        repoURL: https://github.com/bsalsingh/argo-app-set.git
         targetRevision: HEAD
         path: blaze/{{.cluster}}
       destination:
